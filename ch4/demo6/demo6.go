@@ -27,21 +27,26 @@ func main() {
 	//宣告切片3
 	//透過make製作切片
 	var slice3 = make([]int, 3, 10)
+
 	//切片長度 --3
 	fmt.Println(len(slice3))
 	//切片容量 --10
 	fmt.Println(cap(slice3))
-	fmt.Println(slice3)
+
+	fmt.Println(&slice3[0])
+	fmt.Println(&slice3[1])
 
 	//塞入20個元素
-	for i := 0; i < 20; i++ {
-		slice3 = append(slice3, i)
-	}
+	// for i := 0; i < 100; i++ {
+	// 	slice3 = append(slice3, i)
+	// 	fmt.Printf("address of slice %p add of Arr \n", slice3)
+	// }
 
 	//切片長度為23
 	fmt.Println(len(slice3))
 	//切片容量為40,當切片到其容量上限時,會將其底層的array複製一倍容量,所以目前容量上限若為50,當數量要往51增加時,容量會擴充為100
 	//當數量為100,繼續增加時,會擴充為200
+	//但當原容量大於1024時,會用1.25倍增長
 	fmt.Println(cap(slice3))
 	fmt.Println(slice3)
 
