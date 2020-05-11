@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+//定義介面,讓實作的接口都受限制
+type itemAction interface {
+	sendItem(ch chan<- int)
+	getItem(ch <-chan int)
+}
+
 //通道高级用
 //透过型别宣告,限制channel在每个地方的使用条件
 func main() {
